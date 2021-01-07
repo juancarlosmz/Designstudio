@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { ServiciosService } from '../services/servicios.service';
 import { TabsetComponent } from 'ng-uikit-pro-standard';
-import { fabric } from "fabric";
+//import { fabric } from "fabric";
 
 @Component({
   selector: 'app-producto',
@@ -143,8 +143,8 @@ export class ProductoComponent implements OnInit  {
 
   previewimgfirst(texto, fuente,texto2, fuente2){
     // canvas 1
-    var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas');
-    var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
+    //var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas');
+    //var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 
     //canvas 2
     //var canvas2: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas2');
@@ -170,7 +170,7 @@ export class ProductoComponent implements OnInit  {
     // para front
     var anchotexto = texto.length / 2;
     var img = new Image();
-    img.onload = function() {
+    /*img.onload = function() {
         ctx.drawImage(img, 0, 0, img.width, img.height);
         //ctx.font = fuente;
         ctx.font = (ctx.canvas.width/anchotexto)-20 + "px "+fuente;
@@ -181,8 +181,34 @@ export class ProductoComponent implements OnInit  {
         var width = ctx.canvas.width;
         console.log('hancho del texto',width);
     }
-    img.src = this.custom[0].imagen;
- 
+    */
+    //img.src = this.custom[0].imagen;
+
+  //FOR CANVAS 1
+
+  var canvastest1 = new fabric.Canvas('myCanvas',{
+    //backgroundColor: 'lightgrey',
+    //width: 250,
+    //height: 538
+  });
+  var text1 = new fabric.Textbox('insert text', {
+    left: 50,
+    top: 50,
+    //width: 150,
+    fontSize: 50
+  });
+  fabric.Image.fromURL(this.custom[1].imagen, function(img) {
+    img.set({ 
+      left: 0, 
+      top: 0,
+      //width: 250,
+      //height:538
+    });
+    canvastest1.backgroundImage = img;
+    canvastest1.add(text1);
+  });
+
+
 // funcione
     
 
@@ -193,7 +219,7 @@ export class ProductoComponent implements OnInit  {
       //height: 538
     });
    // canvas 
-    var textbox = new fabric.Textbox('texto2', {
+    var text = new fabric.Textbox('texto2', {
       left: 50,
       top: 50,
       //width: 150,
@@ -207,7 +233,7 @@ export class ProductoComponent implements OnInit  {
         //height:538
       });
       canvastest.backgroundImage = img;
-      canvastest.add(textbox);
+      canvastest.add(text);
     });
 
 // Apply selected font on change
@@ -237,13 +263,7 @@ function loadAndUse(font) {
   }
 
   previewimg(texto, fuente, texto2, fuente2){
-    //canvas 1
-    var canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas');
-    var ctx: CanvasRenderingContext2D = canvas.getContext("2d");
-
-    //canvas 2
-    //var canvas2: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas2');
-    //var ctx2: CanvasRenderingContext2D = canvas2.getContext("2d");
+ 
 
     document.getElementById('imagenanterior').style.display = "none";
     document.getElementById('imagenanterior2').style.display = "none";
@@ -262,41 +282,8 @@ function loadAndUse(font) {
     fuente2 = this.myfont2;
 
     // para front
-    var anchotexto = texto.length / 2;
-    var img = new Image();
-    img.onload = function() {
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        //ctx.font = fuente;
-        ctx.font = (ctx.canvas.width/anchotexto)-20 + "px "+fuente;
-        ctx.fillText(texto, 125, 260);
-        ctx.fillStyle = "#d5d6d3";
-        ctx.textAlign="center";
-        ctx.textBaseline="middle";
-        var width = ctx.canvas.width;
-        console.log('hancho del texto',width);
-    }
-    img.src = this.custom[0].imagen;
+ 
     // para back
-
-    /*
-    var anchotexto2 = texto2.length / 2;
-    var img2 = new Image();
-    img2.onload = function() {
-        ctx2.drawImage(img2, 0, 0, img2.width, img2.height);
-        //ctx.font = fuente;
-        ctx2.font = (ctx2.canvas.width/anchotexto2)-20 + "px "+fuente2;
-        ctx2.fillText(texto2, 125, 260);
-        ctx2.fillStyle = "#d5d6d3";
-        ctx2.textAlign="center";
-        ctx2.textBaseline="middle";
-        var width2 = ctx2.canvas.width;
-        console.log('hancho del texto',width2);
-    }
-    img2.src = this.custom[1].imagen;
-*/
-
-    
-
 
   }
   // carouselRef.pause() para pausar
