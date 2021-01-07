@@ -186,23 +186,25 @@ export class ProductoComponent implements OnInit  {
 
   //FOR CANVAS 1
 
+  
+
   var canvastest1 = new fabric.Canvas('myCanvas',{
     //backgroundColor: 'lightgrey',
     //width: 250,
     //height: 538
   });
-  var text1 = new fabric.Textbox('insert text', {
-    left: 50,
-    top: 50,
+  var text1 = new fabric.Textbox('texto', {
+    left: 75,
+    top: 100,
     //width: 150,
     fontSize: 50
   });
-  fabric.Image.fromURL(this.custom[1].imagen, function(img) {
+  fabric.Image.fromURL(this.custom[0].imagen, function(img) {
     img.set({ 
       left: 0, 
       top: 0,
-      //width: 250,
-      //height:538
+      //width: 215,
+      //height:463
     });
     canvastest1.backgroundImage = img;
     canvastest1.add(text1);
@@ -220,8 +222,8 @@ export class ProductoComponent implements OnInit  {
     });
    // canvas 
     var text = new fabric.Textbox('texto2', {
-      left: 50,
-      top: 50,
+      left: 75,
+      top: 100,
       //width: 150,
       fontSize: 50
     });
@@ -229,7 +231,7 @@ export class ProductoComponent implements OnInit  {
       img.set({ 
         left: 0, 
         top: 0,
-        //width: 250,
+        //width: 100%,
         //height:538
       });
       canvastest.backgroundImage = img;
