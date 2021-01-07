@@ -1,0 +1,228 @@
+#imagenanterior {
+    display: none;
+    padding: 0px 20% 0px 20%;
+}
+
+#imagenanterior2 {
+    display: none;
+     padding: 0px 20% 0px 20%;
+}
+
+.thumbnail {
+    height: 70px;
+    width: 70px;
+    background: white;
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    color: #39444b;
+    text-transform: uppercase;
+    font-size: large;
+    flex-basis: auto;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contentext {
+    height: 70px;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: left;
+    text-align: center;
+    line-height: 1.2;
+    color: #39444b;
+    text-transform: uppercase;
+    font-size: large;
+    flex-basis: auto;
+    padding-left: .5rem;
+}
+
+.contentext span {
+    text-align: left;
+    padding-left: .5rem;
+    margin: 0;
+    text-transform: uppercase;
+    position: relative;
+    flex-grow: 2;
+    margin-bottom: 0px !important;
+}
+
+.contentext span .eltexto {
+    color: #39444b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: ltc-square-face, "Proxima Nova Extra Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    font-size: .8rem;
+    margin-bottom: 0px !important;
+    font-weight: bold;
+}
+
+.contentext span .elprecio {
+    line-height: 1.2;
+    margin-top: 0em;
+    display: block;
+    color: #08607f;
+    text-transform: uppercase;
+    margin-bottom: 0px !important;
+    font-weight: bold;
+    font: 11px/16px "Proxima Nova Extra Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.hoverdesign {
+    padding: 3px;
+    border-bottom: 1px #d6dce0 solid;
+}
+
+.hoverdesign:hover {
+    cursor: not-allowed;
+    // background: rgba(228, 228, 228, 0.979);
+    .contentext span .eltexto {
+        color: #39444b9d;
+    }
+}
+
+.hoverdesign2:hover {
+    cursor: pointer;
+    // background: rgba(228, 228, 228, 0.979);
+    .contentext span .eltexto {
+        color: #39444b9d;
+    }
+}
+
+.contentext2 {
+    height: 70px;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: left;
+    text-align: center;
+    line-height: 1.2;
+    color: #39444b;
+    text-transform: uppercase;
+    font-size: large;
+    flex-basis: auto;
+    padding-left: .5rem;
+}
+
+
+/*
+.classic-tabs .container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.classic-tabs .container-fluid .col-md-12 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+mdb-tab {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}*/
+
+#myCanvas {
+    display: none;
+}
+
+#btnPreview {
+    display: none;
+}
+
+.fuenteselec {
+    width: 100%;
+    border: 1px solid #21212133!important;
+}
+
+.fuenteselec:hover {
+    border: 1px solid #000000!important;
+}
+
+.contenedorhover {
+    margin-bottom: 10px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0px 3px 0 3px;
+    height: 40px;
+}
+
+.hoverimg {
+    padding: 3px 3px;
+    //width: 100%;
+}
+
+.modalfull {
+    margin: auto auto !important;
+}
+
+#myModalLabel {
+    max-width: 80%;
+    color: #0a253e;
+    font-family: ltc-square-face, "Proxima Nova Extra Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+}
+
+.closemodal {
+    color: #08607f;
+    font: 0.5em/1 "Proxima Nova Extra Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+}
+
+.banner {
+    background: #b2282f;
+    background-color: rgb(178, 40, 47);
+    color: rgb(255, 255, 255);
+    font: 1rem/1.2 "Proxima Nova Extra Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+
+.elbotoncustom {
+    width: 100%;
+    background-color: transparent !important;
+    border: 2px solid #006080 !important;
+    color: #006080 !important;
+}
+
+.elbotoncustom:hover {
+    background-color: #006080 !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+.hoverimg:hover {
+    border: solid black 2px;
+    cursor: pointer;
+}
+
+.contenedorcanvas {
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 5% !important;
+}
+
+#myCanvas2{
+ 	width: 250px !important;
+	height: 538px !important;
+}
+@media (max-width: 600px) {
+    .versionmobile {
+        padding-top: 60px;
+    }
+    .contenedorcanvas {
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-top: 0 !important;
+    }
+}

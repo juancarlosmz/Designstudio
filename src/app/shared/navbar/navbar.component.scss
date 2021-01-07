@@ -1,0 +1,19 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.bg-light {
+    background-color: #b6b9b8!important;
+}
+
+.navbar-nav .dropdown-menu.mega-menu {
+    width: 100%;
+    //left: -236%;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-nav .dropdown-menu.mega-menu {
+        width: 100%;
+        left: 0;
+    }
+}

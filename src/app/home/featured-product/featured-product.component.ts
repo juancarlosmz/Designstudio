@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LicoreriaservicesService } from 'src/app/services/licoreriaservices.service';
+import { ServiciosService } from 'src/app/services/servicios.service';
 
 @Component({
   selector: 'app-featured-product',
@@ -9,7 +9,7 @@ import { LicoreriaservicesService } from 'src/app/services/licoreriaservices.ser
 export class FeaturedProductComponent implements OnInit {
   allProductos: any;
   constructor(
-    private LicoreriaInyected: LicoreriaservicesService
+    private ServiciosInyected: ServiciosService
   ) { }
 
   ngOnInit(): void {
@@ -17,9 +17,10 @@ export class FeaturedProductComponent implements OnInit {
   }
 
   rtzProductos() {
-    this.LicoreriaInyected.leerProducto().subscribe(
+    this.ServiciosInyected.leerProducto().subscribe(
       (productos) => {
-        this.allProductos = productos;
+        this.allProductos = productos['result'];
+        console.log('este es ', this.allProductos);
       },
       error => {
         console.log('error');

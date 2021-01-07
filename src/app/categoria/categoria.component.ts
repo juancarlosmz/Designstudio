@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { LicoreriaservicesService } from 'src/app/services/licoreriaservices.service';
+import { ServiciosService } from '../services/servicios.service';
 
 @Component({
   selector: 'app-categoria',
@@ -10,20 +10,22 @@ import { LicoreriaservicesService } from 'src/app/services/licoreriaservices.ser
 export class CategoriaComponent implements OnInit {
   allCategoriaProductos: any;
   lacategoria: any;
+  opcion: any;
   constructor(
     private rutaActiva: ActivatedRoute,
-    private LicoreriaInyected: LicoreriaservicesService
+    private ServiciosInyected: ServiciosService
   ) { }
 
   ngOnInit(): void {
     this.lacategoria = this.rutaActiva.snapshot.params.titulo;
-    this.rtzCategoriaProductos(this.rutaActiva.snapshot.params.titulo);
+    this.opcion = 1;
+    this.rtzCategoriaProductos(this.rutaActiva.snapshot.params.titulo,this.opcion);
     console.log(this.lacategoria);
     console.log(this.rutaActiva.snapshot.params.titulo);
   }
 
-  rtzCategoriaProductos(titulo) {
-    this.LicoreriaInyected.leerUnProductoCategoria(titulo).subscribe(
+  rtzCategoriaProductos(titulo, opcion) {
+    this.ServiciosInyected.leerUnProductoCategoria(titulo).subscribe(
       (categoriaproductos) => {
         this.allCategoriaProductos = categoriaproductos;
         console.log(categoriaproductos);
