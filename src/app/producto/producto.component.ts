@@ -2,8 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router} from '@angular/router';
 import { ServiciosService } from '../services/servicios.service';
 import { TabsetComponent } from 'ng-uikit-pro-standard';
-//import { fabric } from "fabric";
-//import 'fabric';
+
 declare const fabric: any;
 
 @Component({
@@ -73,7 +72,7 @@ export class ProductoComponent implements OnInit  {
   ngOnInit(): void {
     this.rtzProducto(this.rutaActiva.snapshot.params.titulo,this.rutaActiva.snapshot.params.color);
     console.log('mis parametros', this.rutaActiva.snapshot.params.color);
-    // const myModal = new mdb.Modal(document.getElementById('myModal'), options) 
+    // const myModal = new mdb.Modal(document.getElementById('myModal'), options)
 
   }
 
@@ -152,7 +151,6 @@ export class ProductoComponent implements OnInit  {
     //var canvas2: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('myCanvas2');
     //var ctx2: CanvasRenderingContext2D = canvas2.getContext("2d");
 
-    
 
     document.getElementById('imagenanterior').style.display = "none";
     document.getElementById('imagenanterior2').style.display = "none";
@@ -169,26 +167,7 @@ export class ProductoComponent implements OnInit  {
     texto2 = this.mytexto2;
     fuente2 = this.myfont2;
 
-    // para front
-    var anchotexto = texto.length / 2;
-    var img = new Image();
-    /*img.onload = function() {
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-        //ctx.font = fuente;
-        ctx.font = (ctx.canvas.width/anchotexto)-20 + "px "+fuente;
-        ctx.fillText(texto, 125, 260);
-        ctx.fillStyle = "#d5d6d3";
-        ctx.textAlign="center";
-        ctx.textBaseline="middle";
-        var width = ctx.canvas.width;
-        console.log('hancho del texto',width);
-    }
-    */
-    //img.src = this.custom[0].imagen;
-
   //FOR CANVAS 1
-
-  
 
   var canvastest1 = new fabric.Canvas('myCanvas',{
     //backgroundColor: 'lightgrey',
@@ -202,8 +181,8 @@ export class ProductoComponent implements OnInit  {
     fontSize: 50
   });
   fabric.Image.fromURL(this.custom[0].imagen, function(img) {
-    img.set({ 
-      left: 0, 
+    img.set({
+      left: 0,
       top: 0,
       //width: 215,
       //height:463
@@ -214,7 +193,7 @@ export class ProductoComponent implements OnInit  {
 
 
 // funcione
-    
+
 
     //fabric back
     var canvastest = new fabric.Canvas('myCanvas2',{
@@ -222,7 +201,7 @@ export class ProductoComponent implements OnInit  {
       //width: 250,
       //height: 538
     });
-   // canvas 
+   // canvas
     var text = new fabric.Textbox('texto2', {
       left: 75,
       top: 100,
@@ -230,8 +209,8 @@ export class ProductoComponent implements OnInit  {
       fontSize: 50
     });
     fabric.Image.fromURL(this.custom[1].imagen, function(img) {
-      img.set({ 
-        left: 0, 
+      img.set({
+        left: 0,
         top: 0,
         //width: 100%,
         //height:538
@@ -263,11 +242,11 @@ function loadAndUse(font) {
       alert('font loading failed ' + font);
     });
 }*/
-    
+
   }
 
   previewimg(texto, fuente, texto2, fuente2){
- 
+
 
     document.getElementById('imagenanterior').style.display = "none";
     document.getElementById('imagenanterior2').style.display = "none";
@@ -286,7 +265,7 @@ function loadAndUse(font) {
     fuente2 = this.myfont2;
 
     // para front
- 
+
     // para back
 
   }
@@ -304,7 +283,7 @@ function loadAndUse(font) {
     document.getElementById('tabssegundaavista').style.display = "none";
     /* document.getElementById('btnPreview').style.display = "none"; */
 
-    
+
 
 
   }
