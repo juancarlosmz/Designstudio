@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router} from '@angular/router';
 import { ServiciosService } from '../services/servicios.service';
 import { TabsetComponent } from 'ng-uikit-pro-standard';
 //import { fabric } from "fabric";
+//import 'fabric';
+declare const fabric: any;
 
 @Component({
   selector: 'app-producto',
@@ -300,7 +302,7 @@ function loadAndUse(font) {
 
     document.getElementById('tabsprimeravista').style.display = "block";
     document.getElementById('tabssegundaavista').style.display = "none";
-    document.getElementById('btnPreview').style.display = "none";
+    /* document.getElementById('btnPreview').style.display = "none"; */
 
     
 
@@ -310,7 +312,7 @@ function loadAndUse(font) {
   actibartabsegundavista(){
     document.getElementById('tabsprimeravista').style.display = "none";
     document.getElementById('tabssegundaavista').style.display = "block";
-    document.getElementById('btnPreview').style.display = "block";
+    /* document.getElementById('btnPreview').style.display = "block"; */
   }
 
 
