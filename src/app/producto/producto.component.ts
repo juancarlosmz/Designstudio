@@ -46,7 +46,7 @@ export class ProductoComponent implements OnInit  {
   public imageObj: HTMLImageElement;
 
   // para el text Front
-  public mytexto: any = '';
+  public mytexto: any = 'Text';
   public myfont: any = 'Arial';
 
   // para el text Back
@@ -195,7 +195,7 @@ export class ProductoComponent implements OnInit  {
     //width: 250,
     //height: 538
   });
-  var text1 = new fabric.Textbox('texto', {
+  var text1 = new fabric.Textbox(texto, {
     left: 75,
     top: 100,
     //width: 150,
@@ -223,7 +223,7 @@ export class ProductoComponent implements OnInit  {
       //height: 538
     });
    // canvas 
-    var text = new fabric.Textbox('texto2', {
+    var text = new fabric.Textbox(texto2, {
       left: 75,
       top: 100,
       //width: 150,
