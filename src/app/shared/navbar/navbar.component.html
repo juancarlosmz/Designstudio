@@ -1,15 +1,10 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #b6b9b8 !important;">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand>
-        <a class="navbar-brand" href="#">
-            <img class="img-fluid" style="width: 50px;" src="https://www.licoreria24hrs.com/backend/img/logo/logo.jpg" alt="Logo">
-
-        </a>
+        <a style="padding: 0 !important;" class="navbar-brand" href="#"><img width="140" src="/assets/logo.png" alt=""></a>
     </mdb-navbar-brand>
-
-
 
     <!-- Collapsible content -->
     <links>
@@ -17,41 +12,37 @@
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link waves-light" [routerLink]="['/']" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>Features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>Pricing</a>
             </li>
 
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown>
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          Cátegorias<span class="caret"></span></a>
+              Basic dropdown<span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                    <ng-container *ngFor="let categoria of allCategorias; let i=index">
-                        <a class="dropdown-item waves-light" (click)="onClickCategoria()" [routerLink]="['/categoria/',categoria.titulo]">{{categoria.titulo}}</a>
-                    </ng-container>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
                 </div>
             </li>
 
         </ul>
         <!-- Links -->
 
-        <ul class="navbar-nav ml-auto nav-flex-icons">
-            <!--
-            <li class="nav-item">
-                <a class="nav-link">
-                    <div class="btn-group" mdbDropdown>
-                        <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="divider dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </div>
-                </a>
-            </li>
--->
-        </ul>
+        <!-- Search form -->
+        <form class="form-inline waves-light" mdbWavesEffect>
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            </div>
+        </form>
     </links>
     <!-- Collapsible content -->
 

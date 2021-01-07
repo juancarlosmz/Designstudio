@@ -5,10 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
-import { DropdownModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { DropdownModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NavbarModule} from 'angular-bootstrap-md';
+import { WavesModule} from 'angular-bootstrap-md';
+
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { Navbar2Component } from './shared/navbar/navbar.component';
 import { FeaturedProductComponent } from './home/featured-product/featured-product.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
@@ -18,26 +22,36 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ProductoComponent } from './producto/producto.component';
 
+//import { NavbarComponent } from 'ng-uikit-pro-standard';
+
+import { TabsModule } from 'ng-uikit-pro-standard';
+
+// canvas library
+//import { fabric } from "fabric";
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    Navbar2Component,
     FeaturedProductComponent,
     HomeComponent,
     SlideshowComponent,
     FooterComponent,
     CategoriaComponent,
-    ProductoComponent
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
+    NavbarModule,
+    WavesModule,
+    TabsModule.forRoot(),
     AppRoutingModule,
     DropdownModule.forRoot(),
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

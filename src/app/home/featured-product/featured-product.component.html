@@ -1,64 +1,53 @@
-<!--Section: Products v.2-->
-<section class="text-center pb-3 my-5" style="margin-top: 7rem !important;">
+<!--Section: Products v.5-->
+<section class="text-center pb-3 my-5">
     <!--Section heading-->
-
-    <h2 class="h1 font-weight-bold text-center h1">Licorería 24hrs</h2>
-    <h2 class="h2 font-weight-bold text-center h2" style="color: #a31b80;">Chachapoyas</h2>
+    <h2 class="h1 py-5">Our bestsellers</h2>
     <!--Section description-->
-    <p class="grey-text pb-5">Somos una tienda online, que ofrece una nueva propuesta de diversión, promociones y ofertas al mejor precio, vendiendo cervezas, tragos cortos, vinos, licores y cócteles artesanales, .</p>
-    <!--Grid row-->
-    <div class="row">
-        <!--Grid column-->
+    <p class="grey-text pb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
 
-        <ng-container *ngFor="let producto of allProductos; let i=index">
+    <!--Carousel Wrapper-->
+    <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'" [animation]="'slide'">
+        <!--First slide-->
 
-            <div class="col-lg-4 col-md-12 mb-3">
-                <!--Card-->
-                <mdb-card cascade="true" wider="true" class="card-ecommerce">
-                    <!--Card image-->
-                    <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-                        <mdb-card-img src="{{producto.imagen}}" alt="sample photo"></mdb-card-img>
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-                    <!--Card image-->
-                    <!--Card content-->
-                    <mdb-card-body cascade="true" class="text-center no-padding">
-                        <!--Category & Title-->
-                        <a [routerLink]="['/producto/',producto.titulo]" class="text-muted">
-                            <h5>{{producto.categoriatitulo}}</h5>
-                        </a>
-                        <mdb-card-title>
-                            <h4 class="card-title">
-                                <strong>
-                        <a [routerLink]="['/producto/',producto.titulo]">{{producto.titulo}}</a>
-                      </strong>
-                            </h4>
-                        </mdb-card-title>
-                        <!--Description-->
-                        <mdb-card-text>{{producto.descripcion}}</mdb-card-text>
-                        <!--Card footer-->
-                        <mdb-card-footer>
-                            <span class="float-left font-weight-bold">
-                      <strong>S/. {{producto.precio}}</strong>
-                    </span>
-                            <span class="float-right">
-                      <a [routerLink]="['/producto/',producto.titulo]" data-toggle="tooltip" data-placement="top" title="Quick Look">
-                        <mdb-icon far icon="eye" class="grey-text ml-3"></mdb-icon>
-                      </a>
-                      <a class="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                        <mdb-icon fas icon="heart" class="grey-text ml-3"></mdb-icon>
-                      </a>
-                    </span>
-                        </mdb-card-footer>
-                    </mdb-card-body>
-                    <!--Card content-->
-                </mdb-card>
-                <!--Card-->
-            </div>
-        </ng-container>
-    </div>
-    <!--Grid row-->
+        <mdb-slide>
+            <ng-container *ngFor="let producto of allProductos; let i=index">
+                <div class="col-md-4">
+                    <!--Card-->
+                    <mdb-card cascade="true" narrower="true" class="card-ecommerce">
+                        <!--Card image-->
+                        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+                            <mdb-card-img src="{{producto.imagen}}" alt="sample photo"></mdb-card-img>
+                            <a [routerLink]="['/producto/',producto.titulo,'1']">
+                                <div class="mask waves-effect waves-light"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+                        <!--Card content-->
+                        <mdb-card-body cascade="true" class="text-center no-padding">
+                            <!--Category & Title-->
+                            <a [routerLink]="['/producto/',producto.titulo,'1']" class="text-muted">
+                                <h5>{{producto.categoriatitulo}}</h5>
+                            </a>
+                            <mdb-card-title>
+                                <h6 class="card-title my-4">
+                                    <strong>
+                                      <a style="color: #00263e;" [routerLink]="['/producto/',producto.titulo,'1']">{{producto.titulo}}</a>
+                                    </strong>
+                                </h6>
+                            </mdb-card-title>
+
+                        </mdb-card-body>
+                        <!--Card content-->
+                    </mdb-card>
+                    <!--Card-->
+                </div>
+            </ng-container>
+
+
+        </mdb-slide>
+        <!--/First slide-->
+    </mdb-carousel>
+    <!--/.Carousel Wrapper-->
+
 </section>
-<!--Section: Products v.2-->
+<!--Section: Products v.5-->

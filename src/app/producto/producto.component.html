@@ -1,47 +1,389 @@
 <div class="container">
-    <!--Section: Features v.3-->
-    <section>
-        <!--Section heading-->
-        <h2 class="h1 py-4 font-weight-bold text-center">
-            {{titulo}}
-        </h2>
-        <!--Section description-->
-        <p style="font-weight: bold;color: #a31b80 !important;" class="px-5 pb-3 lead grey-text text-center">
-            {{descripcion}}
-        </p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row pt-2">
 
-        <!--Grid row-->
-        <div class="row pt-2">
+                <mdb-carousel #carouselRef class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex" (activeSlideChange)="activeSlideChange()" [animation]="'fade'">
 
-            <!--Grid column-->
-            <div class="col-lg-5 text-center text-lg-left">
-                <img src="{{imagen}}" alt="" class="img-fluid z-depth-0">
+                    <ng-container *ngFor="let img of opcioncustom; let i=index">
+                        <mdb-carousel-item>
+                            <img class="d-block w-100" src="{{img.imagen}}" alt="First slide">
+                        </mdb-carousel-item>
+                    </ng-container>
+
+                </mdb-carousel>
             </div>
-            <!--Grid column-->
+        </div>
+        <div class="col-md-6 versionmobile">
+            <section>
+                <h4 class="py-4 font-weight-bold text-left">
+                    {{titulo}}
+                </h4>
+                <p style="color: #002c45 !important;font-size: 14px;" class="pb-3 grey-text text-left">
+                    {{descripcion}}
+                </p>
 
-            <!--Grid column-->
-            <div class="col-lg-7">
-
-                <!--Grid row-->
-                <div class="row pb-3">
-                    <div class="col-2 col-md-1">
-                        <mdb-icon fas icon="reply" size="lg" class="indigo-text"></mdb-icon>
-                    </div>
-                    <div class="col-10">
-                        <h5 class="font-weight-bold text-left mb-3 dark-grey-text">Categoria</h5>
-                        <p class="grey-text text-left">
-                            {{serviciotitulo}}
-                        </p>
+                <div class="container">
+                    <div class="row">
+                        <ng-container *ngFor="let opc of opciones; let i=index">
+                            <div class="col-1 contenedorhover">
+                                <div class="label">
+                                    <img (click)="seleccionarColor(opc.id);" class="hoverimg rounded-circle z-depth-1-half" src="{{opc.imagen}}" alt="First slide">
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
-                <!--Grid row-->
 
-            </div>
-            <!--Grid column-->
+                <p style="color: #002c45 !important;font-size: 14px;" class="pb-3 grey-text text-left">
+                    {{nombrecolor}}
+                </p>
 
+
+                <button class="elbotoncustom" (click)="seleccionarProducto();basicModal.show();" mdbBtn type="button" color="primary" outline="true" mdbWavesEffect>
+                  <i class='fas fa-coffee'></i>&nbsp;&nbsp;&nbsp;&nbsp;Customize It
+                </button>
+
+                <h4 class="py-4 font-weight-bold text-left">
+                    {{precio | currency}}
+                </h4>
+
+            </section>
         </div>
-        <!--Grid row-->
 
-    </section>
-    <!--Section: Features v.3-->
+
+        <div style="height: 100%;overflow: scroll;" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fluid modalfull" style="height: 100%;" role="document">
+                <div class="modal-content" style="height: 100%;">
+
+                    <div class="modal-body" style="padding: 0rem;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row pt-2 contenedorcanvas">
+
+                                    <div class="col-6" id="imagenanterior">
+                                        <img class="" style="width: 100%;" src="{{suimagen}}" alt="">
+                                        <h5 class="h5 text-center"><br>FRONT</h5>
+                                    </div>
+                                    <div class="col-6" id="imagenanterior2">
+                                        <img class="" style="width: 100%;" src="{{suimagen2}}" alt="">
+                                        <h5 class="h5 text-center"><br>BACK</h5>
+                                    </div>
+
+                                    <div class="col-6" id="myCanvascontent1" style="display: none;">
+                                        <canvas class="" style="width: 100%;" id="myCanvas" width="250" height="538"></canvas>
+                                        <h5 class="h5 text-center"><br>FRONT</h5>
+                                    </div>
+                                    <div class="col-6" id="myCanvascontent2" style="display: none;">
+                                        <canvas class="" style="width: 100%;" id="myCanvas2" width="250" height="538"></canvas>
+                                        <h5 class="h5 text-center"><br>BACK</h5>
+                                        
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <section>
+                                    <div class="banner">
+                                        CUSTOMIZING A X-MAS GIFT? THIS ORDER WILL ARRIVE AFTER 12/25.
+                                    </div>
+                                    <div class="modal-header">
+                                        <button style="margin: -1.3rem 0rem -1rem auto;" type="button" class="close pull-right" aria-label="Close" (click)="cerrarmodal();basicModal.hide()">
+                                          <span class="closemodal" aria-hidden="true">CLOSE</span>
+                                        </button>
+                                        <h6 class="modal-title w-100" id="myModalLabel">CUSTOMIZE YOUR 20 OZ TUMBLER</h6>
+                                    </div>
+
+                                    <!-- Nav tabs -->
+                                    <mdb-tabset style="display: block;" id="tabsprimeravista" [buttonClass]="'classic-tabs tabs-blue'" [contentClass]="'card'" class="classic-tabs">
+
+                                        <mdb-tab heading="FRONT">
+                                            <div class="row">
+                                                <div class="col-12" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                    <div class="container">
+                                                        <div class="row hoverdesign2" (click)="actibartabsegundavista();previewimgfirst(mytexto,myfont,mytexto2,myfont2);">
+                                                            <div class="col-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>Go Wild</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                      <label class="eltexto">TEXT</label>
+                                                                      <br>
+                                                                      <label class="elprecio">+ $5 per side</label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>RJM</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                  <label class="eltexto">MONOGRAM</label>
+                                                                  <br>
+                                                                  <label class="elprecio">+ $5 per side</label>
+                                                                </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>pez</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                  <label class="eltexto">DESIGNS</label>
+                                                                  <br>
+                                                                  <label class="elprecio">+ $5 to $10 per side</label>
+                                                                </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>Logo here</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                    <label class="eltexto">PLOAD LOGO</label>
+                                                                    <br>
+                                                                    <label class="elprecio">$10 setup fee per logo<br>
+                                                                      + $5 per side</label>
+                                                                  </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mdb-tab>
+
+                                        <mdb-tab heading="BACK">
+                                            <div class="row">
+                                                <div class="col-12" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                    <div class="container">
+                                                        <div class="row hoverdesign2" (click)="actibartabsegundavista();previewimgfirst(mytexto,myfont,mytexto2,myfont2);">
+                                                            <div class="col-sm-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>Go Wild</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                  <label class="eltexto">TEXT</label>
+                                                                  <br>
+                                                                  <label class="elprecio">+ $5 per side</label>
+                                                                </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-sm-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>RJM</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                              <label class="eltexto">MONOGRAM</label>
+                                                              <br>
+                                                              <label class="elprecio">+ $5 per side</label>
+                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-sm-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>pez</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                              <label class="eltexto">DESIGNS</label>
+                                                              <br>
+                                                              <label class="elprecio">+ $5 to $10 per side</label>
+                                                            </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row hoverdesign">
+                                                            <div class="col-sm-2" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="thumbnail">
+                                                                    <span>Logo here</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-8" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                                <div class="contentext">
+                                                                    <span>
+                                                                <label class="eltexto">PLOAD LOGO</label>
+                                                                <br>
+                                                                <label class="elprecio">$10 setup fee per logo<br>
+                                                                  + $5 per side</label>
+                                                              </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="contentext2">
+                                                                    <i class='fa fa-caret-right'></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mdb-tab>
+                                    </mdb-tabset>
+
+                                    <mdb-tabset style="display: none;" id="tabssegundaavista" [buttonClass]="'classic-tabs tabs-blue'" [contentClass]="'card'" class="classic-tabs">
+
+                                        <mdb-tab heading="FRONT">
+                                            <div class="row">
+                                                <div class="col-12" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="md-form" style="width: 100%;">
+                                                                <textarea style="text-align: center;" type="text" id="form7" class="md-textarea form-control" [(ngModel)]="mytexto" mdbInput></textarea>
+                                                                <label for="form7" style="left: 35%;top: 15%;">Write your text here</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <ng-container *ngFor="let fuente of misFuentes; let i=index">
+                                                                <div class="col-6">
+                                                                    <button (click)="changeActiveTab(fuente,i+1)" type="button" class="btn btn-outline-dark fuenteselec" data-mdb-ripple-color="dark">
+                                                                    {{fuente}}
+                                                                  </button>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <span>
+                                                              There is a $5 embellishment fee per side for all custom text. For orders of 24 units or more, front-side embellishment fees will be waived, but any backside-customization fees will still apply.
+
+                                                              Any custom order with profane/lewd content or copyright infringement is subject to cancellation.
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mdb-tab>
+
+                                        <mdb-tab heading="BACK">
+                                            <div class="row">
+                                                <div class="col-12" style="padding-right: 0px !important;padding-left: 0px !important;">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="md-form" style="width: 100%;">
+                                                                <textarea style="text-align: center;" type="text" id="form7" class="md-textarea form-control" [(ngModel)]="mytexto2" mdbInput></textarea>
+                                                                <label for="form7" style="left: 35%;top: 15%;">Write your text here</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <ng-container *ngFor="let fuente of misFuentes2; let i=index">
+                                                                <div class="col-6">
+                                                                    <button (click)="changeActiveTab2(fuente,i+1)" type="button" class="btn btn-outline-dark fuenteselec" data-mdb-ripple-color="dark">
+                                                                      {{fuente}}
+                                                                    </button>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <span>
+                                                                There is a $5 embellishment fee per side for all custom text. For orders of 24 units or more, front-side embellishment fees will be waived, but any backside-customization fees will still apply.
+
+                                                                Any custom order with profane/lewd content or copyright infringement is subject to cancellation.
+                                                              </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </mdb-tab>
+
+                                    </mdb-tabset>
+
+                                    <button id="btnPreview" style="margin: 0;width: 100%;" (click)="previewimg(mytexto,myfont,mytexto2,myfont2);" type="button" class="btn-info btn">
+                                      Preview / Approve
+                                    </button>
+
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="cerrarmodal();basicModal.hide()" mdbWavesEffect>Close</button>
+                        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>OK!</button>
+                    </div>
+-->
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
 </div>
